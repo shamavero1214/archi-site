@@ -11,6 +11,15 @@ node_modules
 dist
 dist-ssr
 *.local
+.npm-cache
+
+# Local secrets
+.env
+.env.*
+!.env.example
+
+# Local backups can contain credentials
+*.zip
 
 # Editor directories and files
 .vscode/*
@@ -24,3 +33,7 @@ dist-ssr
 *.sw?
 
 .vercel
+
+# Local Codex workspace files
+/.codex-project-memory/
+/AGENTS.md

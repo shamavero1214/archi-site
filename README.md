@@ -1,16 +1,37 @@
-# React + Vite
+# Latteria1963
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Коммерческий сайт производителя свежих итальянских сыров. Клиентская часть
+собрана на React и Vite.
 
-Currently, two official plugins are available:
+## Локальный запуск
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```bash
+npm install
+npm run dev
+```
 
-## React Compiler
+Перед передачей или деплоем:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm run lint
+npm run build
+```
 
-## Expanding the ESLint configuration
+Автоматические тесты в проекте пока не настроены.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Форма
+
+Основная форма на сайте подготавливает сообщение и открывает чат Telegram в
+новой вкладке. Пользователь проверяет текст и отправляет сообщение сам.
+
+`server.js` — отдельная серверная заготовка и сейчас не вызывается клиентским
+приложением. Если она потребуется, секреты должны передаваться только серверу:
+
+- `TELEGRAM_BOT_TOKEN`;
+- `TELEGRAM_CHAT_ID`;
+- `ALLOWED_ORIGINS` — список разрешённых origin через запятую;
+- `PORT` — необязательный порт, по умолчанию `3001`.
+
+Названия переменных перечислены в `.env.example`. Локальные `.env`-файлы
+игнорируются Git. Не используйте префикс `VITE_` для серверных секретов:
+переменные с этим префиксом могут попасть в клиентскую сборку.
